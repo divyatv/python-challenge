@@ -16,6 +16,7 @@
 # Import modules for os and csv - to access their functions.
 import os
 import csv
+import sys
 
 # Find the csv input file and load it on the csvfile variable.
 csvfile= os.path.join('budget_data.csv')
@@ -41,10 +42,14 @@ with open(csvfile, 'r', newline='') as csvpybankfile:
         Total = int(row[1]) + Total
     
 
-
-
-
-
+## Print the results to a file.
+writefile=open('pyBankResults.txt', 'w')
+#writefile.write("Financial Analysis")
+#writefile.close()
+sys_out = sys.stdout
+sys.stdout = writefile
+ ## Printing results to the terminal- writing whatever to the file.
+print("Financial Analysis")
 print ("-------------------------------------------------------------------")
 print ("Total Months: ", count)
 print ("Total: $",Total)
@@ -52,6 +57,20 @@ print ("Average  Change: $-2315.12")
 print ("Greatest Increase in Profits: Feb-2012 ($1926159)")
 print ("Greatest Decrease in Profits: Sep-2013 ($-2196167)")
 print ("--------------------------------------------------------------------") 
+writefile.close()
+sys.stdout = sys_out
+
+
+##Print the file to the terminal.
+newfile=os.path.join('pyBankResults.txt')
+with open(newfile, 'r', newline='') as terminaloutput:
+    printterminal=terminaloutput.read()
+    print(printterminal)
+    
+
+ 
+
+
 
 
 
