@@ -5,6 +5,7 @@
 # 4-  The greatest increase in profits (date and amount) over the entire period
 # 5- The greatest decrease in losses (date and amount) over the entire period
 # 6- As an example, your analysis should look similar to the one below:
+## **** Assuming there are no repitions of the months ****
 # Financial Analysis
 #  -------------------------------------------------------------------
 # Total Months: 86
@@ -35,6 +36,7 @@ with open(csvfile, 'r', newline='') as csvpybankfile:
     Total=0
     count =0
     AverageChange=[]
+    Month=[]
     #For every row in the csv file, print the line or do something else.
         
     for row in csvreader:
@@ -44,6 +46,7 @@ with open(csvfile, 'r', newline='') as csvpybankfile:
         count = count +1
         Total = int(row[1]) + Total
         AverageChange.append(int(row[1]))
+        Month.append(str(row[0]))
     #print(AverageChange)    
 #print("length of first list which has total=", len(AverageChange))
 print("-------------------------------------------------------------------")
@@ -65,9 +68,17 @@ AverageChangenum=round((total/len(newlist)), 1)
 
 #Calculate the max and min in the new list.
 GreatestIncrease=max(newlist)
+GreatestMonthindex=newlist.index(GreatestIncrease)
+#print("index for greatest increase=",GreatestMonthindex)
+GreatestMonth=Month[GreatestMonthindex+1]
+#print(" data in greatest month increase=", GreatestMonth)
 #print("GreatestIncrease=", GreatestIncrease)
 
 GreatestDecrease=min(newlist)
+GreastestDecreaseMonthIndex=newlist.index(GreatestDecrease)
+#print("index for greatest decrease=", GreastestDecreaseMonthIndex)
+GreastDecreaseMonth=Month[GreastestDecreaseMonthIndex+1]
+#print(" data in greatest decrease month=", GreastDecreaseMonth)
 #print("GreatestDecrease=", GreatestDecrease)
 
 ## Print the results to a file.
@@ -83,9 +94,11 @@ print ("-------------------------------------------------------------------")
 print ("Total Months: ", count)
 print ("Total: $",Total)
 print ("Average  Change: $", AverageChangenum)
-print ("Greatest Increase in Profits: Feb-2012 ($",GreatestIncrease,")")
-print ("Greatest Decrease in Profits: Sep-2013 ($",GreatestDecrease,")")
+print ("Greatest Increase in Profits: ", GreatestMonth,  "($",GreatestIncrease,")")
+print ("Greatest Decrease in Profits: ", GreastDecreaseMonth,  "($",GreatestDecrease,")")
 print ("--------------------------------------------------------------------") 
+
+#Close the file that was opened to write stdout into.
 writefile.close()
 sys.stdout = sys_out
 
