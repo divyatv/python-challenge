@@ -41,8 +41,7 @@ with open(csvfile, 'r', newline='') as csvpybankfile:
         
     for row in csvreader:
         # Printing the rows to see what I get.
-
-        #print(row)
+        # print(row)
         count = count +1
         Total = int(row[1]) + Total
         AverageChange.append(int(row[1]))

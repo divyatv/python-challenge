@@ -6,7 +6,7 @@
 # The total number of votes each candidate won
 # The winner of the election based on popular vote.
 
-## ***** Assuming that there is no fraus that is - same voter dindt cast vote
+## ***** Assuming that there is no frauds that is - same voter dindt cast vote
 ## ***** More than once in same of different county.
 
 ## Import os and csv to read from the files and write to files.
@@ -19,10 +19,32 @@ csvfile=os.path.join('PyPoll', 'election_data.csv')
 print("path of the file=", csvfile)
 
 with open(csvfile, 'r', newline='') as datafile:
-    csvdata=csv.reader(datafile)
-    print("csv data object=", csvdata)
+    csvreader=csv.reader(datafile)
+    print("csv data object=", csvreader)
+    ## skip the header of the file.
+    next(csvreader)
 
-## Calcualtions reside here:
+## Calculations reside here:
+    #Initialising lists for calculations
+    Candidates=[]
+    CandidateCount=0
+    for row in csvreader:
+        Candidates.append(row[2])
+    #print(Candidates)
+def findunique(list):
+    uniquelist=[]
+    for x in list:
+        if x not in uniquelist:
+            uniquelist.append(x)
+    for x in uniquelist:
+        print("unique candidates are=:", x)   
+
+findunique(Candidates)    
+
+def findpercent(list):
+    numberofvotes=[]
+    for x in list:
+        
 
 
 
