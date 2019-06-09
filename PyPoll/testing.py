@@ -1,3 +1,5 @@
+## This file has sample date for me to learn how to iterate the list.
+
 newlist= [['Khan', [3521001, 2218231, 63.00001050837531]], ['Correy', [3521001, 70425500, 19.999994319797125]], ['Li', [3521001, 492940, 13.999996023857989]], ["O'Tooley", [3521001, 105630, 2.999999147969569]]]
 
 print("what=", newlist[0][1][0])
