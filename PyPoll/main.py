@@ -27,13 +27,11 @@ with open(csvfile, 'r', newline='') as datafile:
 ## Calculations reside here:
     #Initialising lists for calculations
     Candidates_Raw=[]
-    CandidateCount=0
     for row in csvreader:
         Candidates_Raw.append(row[2])
     #print("Candidate list=", Candidates)
 
-   
-
+   #Function to calcualte all unique candidates participating in the elections.
 def findunique(list):
     uniquelist=[]
     for x in list:
@@ -43,11 +41,11 @@ def findunique(list):
     #for x in uniquelist:
     print("unique candidates are=:", uniquelist)  
     return uniquelist
-
+## Driver for for function findunique - get a unique list of candidates.
 UniqueList=findunique(Candidates_Raw)
 print("Unique list of candidate=", UniqueList)
  
-
+## Function to calculate total votes, winner and % of votes for each candidate.
 def Calculate_Winner(str, list2):
     numberofvotes=0
     TotalVotes=0
@@ -63,20 +61,13 @@ def Calculate_Winner(str, list2):
         percentage=(numberofvotes/TotalVotes)*100
         #print ( eachcandidate, "%=",percentage)
         NumHolder=[TotalVotes, numberofvotes, percentage]
+        ## This list PrintResult will have the names of candidates against the number of votes 
+        ## and % of votes they got.
         PrintResult=[str, NumHolder]
     return PrintResult;
-     #### Writing the std out into a file and then printing the file content to terminal.
-    
-
-    #PrintResult=[eachcandidate, numberofvotes, TotalVotes, percentage]
-    ##Return everything that you calculated
-    #return[numberofvotes, TotalVotes, percentage];
 
 newlist=[]    
 for eachCandidate in UniqueList:
-   #print("everyCandidate=", everyCandidate)
-   #findpercent("everyCandidate", Candidates) 
- #list=Calculate_Winner(eachCandidate, Candidates_Raw) 
  list1=Calculate_Winner(eachCandidate, Candidates_Raw)
  newlist.append(list1)
  print("calculated list=", newlist)
@@ -110,13 +101,7 @@ print("---------------------------")
 writefile.close()
 sys.stdout=sys_out 
 
-
-
-
-
-
-
-##Write from file to terminal.
+##Read from file and output to  terminal.
 pathoffile=os.path.join('PyPoll_results.txt')
 print(pathoffile)
 with open (pathoffile, 'r', newline='') as terminalprint:
