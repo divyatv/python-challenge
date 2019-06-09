@@ -6,8 +6,8 @@
 # The total number of votes each candidate won
 # The winner of the election based on popular vote.
 
-## ***** Assuming that there is no frauds that is - same voter dindt cast vote
-## ***** More than once in same of different county.
+## ***** Assuming that there is no frauds that is - same voter did't cast vote more than once.
+## ***** More than once in same or different county.
 
 ## Import os and csv to read from the files and write to files.
 import os

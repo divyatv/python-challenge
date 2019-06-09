@@ -101,7 +101,6 @@ print ("--------------------------------------------------------------------")
 writefile.close()
 sys.stdout = sys_out
 
-
 ##Print the file to the terminal.
 newfile=os.path.join('pyBankResults.txt')
 with open(newfile, 'r', newline='') as terminaloutput:
