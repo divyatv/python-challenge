@@ -91,7 +91,7 @@ writefile=open('PyPoll_results.txt', 'w')
 sys_out=sys.stdout
 sys.stdout=writefile
 ##Print to the terminal part of the doe goes here:
-print("-----------------------VIVEK-------------------------------")
+print("------------------------------------------------------")
 print("Election Results")
 print ("-----------------------------------------------------------")
 print("Total Votes:", newlist[0][1][0])
